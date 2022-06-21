@@ -1,0 +1,12 @@
+[package]
+name = "main"
+version = "0.1.0"
+authors = ["John <john.doe@crypto.com>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = "4.0.0-pre.9"
+near-contract-standards = "4.0.0-pre.9"
