@@ -30,7 +30,7 @@ async function initContracts() {
 
   const contract = await new nearAPI.Contract(
     walletConnection.account(),
-    "main.cryptosketches.testnet",
+    "donate_board.cryptosketches.testnet",
     {
       viewMethods: [],
       changeMethods: ['sample_method'],

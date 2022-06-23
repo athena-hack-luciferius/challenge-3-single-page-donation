@@ -8,6 +8,6 @@ overflow-checks = true
 
 [workspace]
 members = [
-  "main",
+  "donate-board",
   # add additional contracts here
 ]

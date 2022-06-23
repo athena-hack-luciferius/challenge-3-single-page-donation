@@ -1,5 +1,5 @@
 [package]
-name = "main"
+name = "donate-board"
 version = "0.1.0"
 authors = ["John <john.doe@crypto.com>"]
 edition = "2021"
