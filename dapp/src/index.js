@@ -32,8 +32,8 @@ async function initContracts() {
     walletConnection.account(),
     "donate_board.cryptosketches.testnet",
     {
-      viewMethods: [],
-      changeMethods: ['sample_method'],
+      viewMethods: ['get_donation_projects'],
+      changeMethods: ['create_donation_project', 'delete_donation_project', 'donate'],
       sender: walletConnection.getAccountId(),
     }
   );

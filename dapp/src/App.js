@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NotFound from './components/404.jsx';
 import Dashboard from './components/Dashboard.jsx';
-import Example from './components/Example.jsx';
 import SignIn from './components/SignIn.jsx';
 import Layout from './layout';
 import Big from 'big.js';
@@ -30,8 +29,13 @@ const App = ({ contract, currentUser, nearConfig, wallet, provider, lastTransact
         let message;
 
         if(receiver === contract.contractId && method === "sample_method"){
-          //retrieve messages based on transaction details
-          message = result.receipts_outcome[0].outcome.logs.pop();
+          if(result.status.SuccessValue){
+            message = 'Successfully created new donation project.';
+            //Trigger reload donation projects
+          }
+          else {
+            message = 'Creating a donation project failed. Please try again.';
+          }
         }
         if(!message){
           //some default fallback
@@ -43,17 +47,15 @@ const App = ({ contract, currentUser, nearConfig, wallet, provider, lastTransact
       }
   }, [lastTransaction, error, currentUser, provider, contract.contractId]);
 
-  const onSampleMethod = () => {
-    contract.sample_method(
-      {
-        //add arguments here in the format
-        //<argument>: <value>
-      },
-      BOATLOAD_OF_GAS,
-      Big(1).times(10 ** 14).toFixed() //attached deposit in yoctoNEAR
-    ).then((_) => {
-      //this is only executed if there is 0 deposit - for demonstartion purpose it is 1 here
-    })
+  const onCreateProject = async (e) => {
+    e.preventDefault();
+    const { title, description, youtube, homepage } = e.target.elements;
+    await contract.delete_donation_project({
+      title: title.value,
+      description: description.value,
+      youtube_stream: youtube.value,
+      homepage: homepage.value
+    });
   }
   
   const signIn = () => {
@@ -91,9 +93,9 @@ const App = ({ contract, currentUser, nearConfig, wallet, provider, lastTransact
   
   return (
     <Routes>
-      <Route path="/" element={<Layout currentUser={currentUser} signIn={signIn} signOut={signOut} clearMessage={clearMessage} message={message}/>}>
+      <Route path="/" element={<Layout currentUser={currentUser} signIn={signIn} signOut={signOut} clearMessage={clearMessage} message={message}
+                                        onCreateProject={onCreateProject}/>}>
         <Route index element={<Dashboard version={version}/>}/>
-        <Route path="example" element={<Example onSampleMethod={onSampleMethod} />}/>
         <Route path="*" element={<NotFound/>}/>
       </Route>
     </Routes>
