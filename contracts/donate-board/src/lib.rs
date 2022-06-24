@@ -67,6 +67,7 @@ impl Contract {
     ) {
         let index = self.donation_projects.binary_search_by_key(&project_id, |p| p.id);
         if index.is_ok(){
+            assert_eq!(env::predecessor_account_id(), self.donation_projects.get(index.ok().unwrap()).unwrap().donation_target, "Only the donation project owner can delete the project.");
             self.donation_projects.remove(index.ok().unwrap());
         }
     }
@@ -82,7 +83,7 @@ impl Contract {
         &mut self,
         donation_project: DonationData,
     ) {
-        assert!(self.donation_projects.contains(&donation_project), "Invalid donation project.");
+        assert!(self.donation_projects.binary_search_by_key(&donation_project.id, |p| p.id).is_ok(), "Invalid donation project.");
         assert!(env::attached_deposit() > 1, "No donation given.");
         Promise::new(donation_project.donation_target.clone()).transfer(env::attached_deposit());
         let mut donations = self.donations.get(&env::predecessor_account_id()).unwrap_or(Vec::new());
@@ -92,6 +93,14 @@ impl Contract {
             donation_project: donation_project 
         });
         self.donations.insert(&env::predecessor_account_id(), &donations);
+    }
+
+    pub fn get_donations(
+        &self,
+        account_id: AccountId
+    ) -> Vec<Donation> {
+        let result = self.donations.get(&account_id);
+        result.unwrap_or(Vec::new())
     }
     
     /*

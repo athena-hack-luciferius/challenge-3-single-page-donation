@@ -12,9 +12,12 @@ body {
 }
 
 #page-wrapper {
-  max-width: 66%;
   margin: 0 auto 0 auto;
-  overflow: auto
+  overflow: auto;
+  padding-left: 16%;
+  padding-right: 16%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 #App {
