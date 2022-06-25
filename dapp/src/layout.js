@@ -51,6 +51,7 @@ const Layout = ({currentUser, signIn, signOut, clearMessage, message,
 
   return (
     <>
+      <div class="bg-image"/>
       <div id="App">
           <main id="page-wrapper" className='flex flex-col justify-between h-full w-full'>
             <Outlet/>

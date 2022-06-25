@@ -35,7 +35,7 @@ const Dashboard = ({version, currentUser, contract, onDeleteProject, onDonate}) 
   if(!loaded){
     return <>
               <Typography variant="h4" component="h1" gutterBottom>
-                Title of Your App - {version}
+                Simple Donations - {version}
               </Typography>
               <Typography variant="h4" component="h1" gutterBottom>
                 Loading...
@@ -46,12 +46,27 @@ const Dashboard = ({version, currentUser, contract, onDeleteProject, onDonate}) 
   return <>
           <div className="my-4">
             <Typography variant="h4" component="h1" gutterBottom>
-              Title of Your App - {version}
+              Simple Donations - {version}
             </Typography>
-            <p>
-                This app was developed for the XXX hackathon.
-                Explanation of the app.
-            </p>
+            <Typography variant="body1" component="p" className='mt-4 mb-2'>
+                This app demonstrates how blockchain technology can be used to simplyfy and
+                streamline the creation of donation projects. It allows the cash to reach
+                the right places without any middle-man or delay. The only requirement is
+                a working internet connection.
+            </Typography>
+            <Typography variant="body1" component="p" className='mt-4 mb-2'>
+                Everyone with a NEAR wallet can create a new donation project with a simple
+                click of a button in the top left corner. The user than provides information
+                that shows the donors the credibility of the project like video links and 
+                website links. Donors can then simply click on any project below to donate
+                to them.
+            </Typography>
+            <Typography variant="body1" component="p" className='mt-4 mb-2'>
+                Further ideas of development are to integrate fiat conversion services so it
+                is possible to donate using fiat currencies. Another idea is to provide a
+                simplified view of a single project that can be embedded into any website,
+                such as the donation projects homepage.
+            </Typography>
             {projects.length > 0
             ? 
             <Grid container spacing={2}>
