@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/challenge-3-single-page-donation/static/css/main.457bae19.css",
-    "main.js": "/challenge-3-single-page-donation/static/js/main.474c95c2.js",
+    "main.css": "/challenge-3-single-page-donation/static/css/main.03cd13cb.css",
+    "main.js": "/challenge-3-single-page-donation/static/js/main.99511018.js",
     "static/js/787.03770da1.chunk.js": "/challenge-3-single-page-donation/static/js/787.03770da1.chunk.js",
     "static/media/404.jpg": "/challenge-3-single-page-donation/static/media/404.6fa35088bd569d4c3d4c.jpg",
     "index.html": "/challenge-3-single-page-donation/index.html",
-    "main.457bae19.css.map": "/challenge-3-single-page-donation/static/css/main.457bae19.css.map",
-    "main.474c95c2.js.map": "/challenge-3-single-page-donation/static/js/main.474c95c2.js.map",
+    "main.03cd13cb.css.map": "/challenge-3-single-page-donation/static/css/main.03cd13cb.css.map",
+    "main.99511018.js.map": "/challenge-3-single-page-donation/static/js/main.99511018.js.map",
     "787.03770da1.chunk.js.map": "/challenge-3-single-page-donation/static/js/787.03770da1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.457bae19.css",
-    "static/js/main.474c95c2.js"
+    "static/css/main.03cd13cb.css",
+    "static/js/main.99511018.js"
   ]
 }
